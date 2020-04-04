@@ -3,10 +3,13 @@ const router = require('express').Router();
 const authController = require('../controllers/AuthController');
 const authMiddleware = require('../middlewares/AuthMiddleware');
 const authValidator = require('../validators/AuthValidators');
+const mailController = require('../controllers/MailController');
 const homepageController = require('../controllers/HomepageController');
 const passport = require('passport');
 
 router.get('/', homepageController.index);
+
+reouter.get('/send-mail', mailController.sendMail);
 
 router.get('/auth/login', authController.login);
 router.get('/auth/register', authController.register);
